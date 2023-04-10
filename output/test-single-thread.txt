@@ -1,0 +1,219 @@
+pi@raspberrypi:~/Desktop/JS $ gcc main.c -o main; sudo ./main 1 ./executables1/
+mkdir: cannot create directory ‘/sys/fs/cgroup/core0’: File exists
+sh: 1: cannot create /sys/fs/cgroup/core0/cpuset.cpus: Permission denied
+mkdir: cannot create directory ‘/sys/fs/cgroup/core1’: File exists
+sh: 1: cannot create /sys/fs/cgroup/core1/cpuset.cpus: Permission denied
+mkdir: cannot create directory ‘/sys/fs/cgroup/core2’: File exists
+sh: 1: cannot create /sys/fs/cgroup/core2/cpuset.cpus: Permission denied
+mkdir: cannot create directory ‘/sys/fs/cgroup/core3’: File exists
+sh: 1: cannot create /sys/fs/cgroup/core3/cpuset.cpus: Permission denied
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+sh: 1: echo: echo: I/O error
+1
+[3237] Host Started
+[3237] Monitor Started
+[3238] Driving core 1
+---------------------------------------------
+[3238]   process mem1 runs at 3241
+[3237]     running...
+[3237]     sampling (3241)...
+				cpu: (99.95%) 622936193 622606253 29939
+				memory: 1818624
+[3237]     sampling (3241)...
+				cpu: (99.95%) 623284024 622954084 29939
+				memory: 1982464
+[3237]     sampling (3241)...
+				cpu: (99.95%) 623634660 623304720 29939
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 623933838 623603898 29939
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 624272262 623942323 29939
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 624591559 624261619 29939
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 624969405 624639465 29939
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 625278652 624948713 29939
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 625643397 625313457 29940
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 625973186 625643245 29940
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 626290971 625961030 29940
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 626688178 626358237 29940
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 627047022 626717081 29940
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 627380650 627050709 29940
+				memory: 2113536
+[3237]     sampling (3241)...
+				cpu: (99.95%) 627729137 627399196 29940
+				memory: 2113536
+[3237]  Timeout: 3241
+[3237]     sampling (3241)...
+				cpu: (99.95%) 628077910 627747969 29940
+				memory: 2113536
+---------------------------------------------
+[3238]   process sleep2.sh runs at 3244
+[3237]     running...
+[3237]     sampling (3244)...
+				cpu: (99.95%) 631646244 631316303 29940
+				memory: 2117632
+[3237]     sampling (3244)...
+				cpu: (99.95%) 631995155 631665214 29940
+				memory: 2457600
+[3237]     sampling (3244)...
+				cpu: (99.95%) 632343889 632013948 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 632689503 632359562 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 633038329 632708388 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 633387213 633057272 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 633824681 633494740 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 634105196 633775255 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 634454144 634124203 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 634803036 634473095 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 635152033 634822093 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 635500995 635171054 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 635849994 635520053 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 636197801 635867860 29940
+				memory: 2453504
+[3237]     sampling (3244)...
+				cpu: (99.95%) 636546687 636216746 29940
+				memory: 2453504
+[3237]  Timeout: 3244
+[3237]     sampling (3244)...
+				cpu: (99.95%) 636898851 636568910 29940
+				memory: 2400256
+---------------------------------------------
+[3238]   process sleep1.sh runs at 3248
+[3237]     running...
+[3237]     sampling (3248)...
+				cpu: (99.95%) 640423670 640093729 29940
+				memory: 2109440
+[3237]     sampling (3248)...
+				cpu: (99.95%) 640771893 640441953 29940
+				memory: 2433024
+[3237]     sampling (3248)...
+				cpu: (99.95%) 641120787 640790846 29940
+				memory: 2433024
+[3237]     sampling (3248)...
+				cpu: (99.95%) 641469880 641139939 29940
+				memory: 2433024
+[3237]     sampling (3248)...
+				cpu: (99.95%) 641818818 641488877 29940
+				memory: 2433024
+[3237]     sampling (3248)...
+				cpu: (99.95%) 642167875 641837934 29940
+				memory: 2433024
+[3237]     sampling (3248)...
+				cpu: (99.95%) 642517023 642187082 29940
+				memory: 2433024
+[3237]     sampling (3248)...
+				cpu: (99.95%) 642866115 642536174 29940
+				memory: 2433024
+[3237]     sampling (3248)...
+				cpu: (99.95%) 643214848 642884907 29940
+				memory: 2433024
+[3237]     sampling (3248)...
+				cpu: (99.95%) 643563972 643234031 29940
+				memory: 2433024
+[3237]     sampling (3248)...
+				cpu: (99.95%) 643913010 643583069 29940
+				memory: 2433024
+[3237]     finished 1.069295944...
+1
+[3237] Monitor Terminated
