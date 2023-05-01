@@ -6,86 +6,83 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int report_cpu_usage(char *cgroup, char *name, char *out){
-    int fd;
-    // FILE *fp;
-    char path[256];
-    char outpath[256];
-    char buf[1024];
-    int len;
-    sprintf(path, "%s/cpu.stat", cgroup);
-    // sprintf(outpath, "%s/%s.txt", output, name);
+unsigned long prev_time = 0;
+float prev_uptime = 0;
 
+// read the cpu percentage usage
+float report_cpu_usage(char *cgroup){
+  int fd, len, host = -1, pid;
+  float uptime;
+  int total_time = 0;
+  unsigned long utime, stime;
+  FILE * fp;
+  FILE * file;
+  char path[256], buf[1024];
+  float ratio = 0.0;
 
-    if ((fd = open(path, O_RDONLY)) < 0) {
-        perror("open");
-        exit(1);
+  // read the uptime
+  fp = fopen("/proc/uptime", "r");
+  fscanf(fp, "%*f %f", &uptime);
+  fclose(fp);
+
+  // iterate through all processes in the cgroup
+  sprintf(path, "%s/cgroup.procs", cgroup);
+  fp = fopen(path, "r");
+
+  while (fgets(buf, sizeof(buf), fp) != NULL) {
+    if (host == -1) {  // skip the host program
+      host = 0;
+      continue;
     }
+    pid = atoi(buf);
 
-    if ((len = read(fd, buf, sizeof(buf))) < 0) {
-        perror("read");
-        exit(1);
-    }
+    // read the user time and system time of the program
+    sprintf(path, "/proc/%d/stat", pid);
+    file = fopen(path, "r");
+    fscanf(file, "%*d %*s %*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u %lu %lu", &utime, &stime);
+    total_time += utime + stime;
+    fclose(file);
+  }
+  fclose(fp);
 
-    // if ((fp = fopen(outpath, "a")) < 0) {
-    //     perror("output file open");
-    //     exit(1);
-    // }
+  // calculate the instantaneous cpu usage (average cpu usage since last sample) of all the processes in the cgroup
+  ratio = (float) 100 * (total_time - prev_time) / (uptime - prev_uptime) / sysconf(_SC_CLK_TCK);
 
-    buf[len] = '\0';
+  // record the current status for next sample
+  prev_time = total_time;
+  prev_uptime = uptime;
 
-    char *ptr = strtok(buf, "\n");
-    long u1 = -1, u2 = -1, u3 = -1;
-    while (ptr != NULL) {
-        if (u1 == -1) {
-            u1 = atoi(ptr + 12);
-        } else if (u2 == -1) {
-            u2 = atoi(ptr + 11);
-        } else {
-            u3 = atoi(ptr + 13);
-        }
-        ptr = strtok(NULL, "\n");
-    }
-    printf("\t\t\t\tcpu: (%.2f%) %d %d %d\n", (float) u2 / u1 * 100, u1, u2, u3);
-    // fprintf(fp, "%s", buf);
-
-    close(fd);
-    // fclose(fp);
-
-    return 0;
+  return ratio;
 }
 
-int report_memory_usage(char *cgroup, char *name, char *out){
-    int fd;
-    // FILE *fp;
-    char path[256];
-    char outpath[256];
-    char buf[1024];
-    int len;
-    sprintf(path, "%s/memory.current", cgroup);
-    // sprintf(outpath, "%s/%s.txt", output, name);
+// read the memory usage
+unsigned long report_memory_usage(char *cgroup){
+  FILE *fp;
+  char path[256], buf[1024];
+  FILE *file;
+  int len, pid, host = -1;
+  long vsize, total = 0;
 
-    if ((fd = open(path, O_RDONLY)) < 0) {
-        perror("open");
-        exit(1);
+  // iterate through all processes in the cgroup
+  sprintf(path, "%s/cgroup.procs", cgroup);
+  fp = fopen(path, "r");
+
+  while (fgets(buf, sizeof(buf), fp) != NULL) {
+    if (host == -1) {  // skip the host
+      host = 0;
+      continue;
     }
+    pid = atoi(buf);
 
-    if ((len = read(fd, buf, sizeof(buf))) < 0) {
-        perror("read");
-        exit(1);
-    }
+    // read the memory usage of the program
+    sprintf(path, "/proc/%d/stat", pid);
+    file = fopen(path, "r");
+    fscanf(file, "%*d %*s %*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u %*u %*u %*d %*d %*d %*d %*d %*d %*u %lu", &vsize);
+    total += vsize;
+    fclose(file);
+  }
 
-    // if ((fp = fopen(outpath, "a")) < 0) {
-    //     perror("output file open");
-    //     exit(1);
-    // }
+  fclose(fp);
 
-    buf[strlen(buf)-1] = '\0';
-    printf("\t\t\t\tmemory: %d\n", atoi(buf)); fflush(stdout);
-    // fprintf(fp, "%s", buf);
-
-    close(fd);
-    // fclose(fp);
-
-    return 0;
+  return total;
 }

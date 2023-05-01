@@ -1,0 +1,6 @@
+file,time,cpu,memory
+stats.csv,0.000s,0.0%,3 MB
+reboot.sh,0.000s,0.0%,1 MB
+reboot.sh,0.050s,0.0%,18 MB
+reboot.sh,0.103s,0.0%,18 MB
+hostname.sh,0.000s,0.0%,1 MB
